@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.custom.i18n.resources" value="global" />
+	<!-- para activar una interfaz de ayuda -->
+	<constant name="struts.devMode" value="false"></constant>
+
+
+
+	<package name="default" extends="struts-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult"></result-type>
+		</result-types>
+
+
+
+
+		<action name="inicio" class="pe.edu.cibertec.action.UsuarioAction"
+			method="inicio">
+			<result name="login">/pages/seguridad/login.jsp</result>
+		</action>
+
+		<action name="login" class="pe.edu.cibertec.action.UsuarioAction"
+			method="login">
+			<result type="tiles">d_principal</result>
+			<result name="login">/pages/seguridad/login.jsp</result>
+			<result name="input">/pages/seguridad/login.jsp</result>
+		</action>
+
+		<action name="logout" class="pe.edu.cibertec.action.UsuarioAction"
+			method="logout">
+			<result name="login">/pages/seguridad/login.jsp</result>
+		</action>
+
+	</package>
+
+</struts>
+   
+   
+	

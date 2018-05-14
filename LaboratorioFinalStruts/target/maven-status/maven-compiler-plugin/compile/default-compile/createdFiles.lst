@@ -1,0 +1,7 @@
+pe\edu\cibertec\model\Usuario.class
+pe\edu\cibertec\action\ClienteAction.class
+pe\edu\cibertec\dao\DaoCliente.class
+pe\edu\cibertec\action\UsuarioAction.class
+pe\edu\cibertec\model\Cliente.class
+pe\edu\cibertec\dao\implement\PersistenciaBDDaoCliente.class
+pe\edu\cibertec\util\SqlConecta.class
