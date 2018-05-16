@@ -10,7 +10,10 @@
        			<put-attribute name="footer" value="/templates/fragments/footer.jsp"/>
        			<put-attribute name="body" value="/pages/principal.jsp"/>
        		</definition>
-       
+       		
+       		<definition name="d_listaCliente"  extends="d_principal">
+       			<put-attribute name="body"  value="/pages/clientes/lista_clientes.jsp"/>
+       		</definition>
        
        
        </tiles-definitions>

@@ -27,7 +27,7 @@ public class SqlConecta {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             cn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/" + db, "root", "mysql");
+                    "jdbc:mysql://localhost:3306/" + db, "root", "123456");
             
         } catch (SQLException sqle) {
           sqle.printStackTrace();

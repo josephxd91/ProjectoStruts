@@ -20,8 +20,8 @@
 		<tiles:insertAttribute name="header" />
 		<div class="main-container">
 			<tiles:insertAttribute name="naver" />
-			<div class="content" style="overflow:true; " >
-				<tiles:insertAttribute name="body" />
+			<div class="content" id="body_content_change">
+				<tiles:insertAttribute  name="body" />
 			</div>
 		</div>
 
@@ -33,6 +33,7 @@
 	<script src="resources/js/chart.min.js"></script>
 	<script src="resources/js/carbon.js"></script>
 	<script src="resources/js/demo.js"></script>
+	<script src="resources/js/script.js"></script>
 
 </body>
 </html>

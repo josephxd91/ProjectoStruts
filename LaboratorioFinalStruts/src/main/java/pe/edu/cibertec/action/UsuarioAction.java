@@ -45,5 +45,9 @@ public class UsuarioAction extends ActionSupport {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
+	public String goPageHome() {
+		return SUCCESS;
+	}
 
 }

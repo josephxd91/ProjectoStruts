@@ -36,6 +36,17 @@
 			<result name="login">/pages/seguridad/login.jsp</result>
 		</action>
 
+		<!-- listado de clientes -->
+		<action name="getListClientes" class="pe.edu.cibertec.action.ClienteAction"
+			method="listadoClientes">
+			<result type="tiles">d_listaCliente</result>
+		</action>
+		
+		<!-- Evento ir pagina inicial -->
+		<action name="indexPageHome" class="pe.edu.cibertec.action.UsuarioAction" method="goPageHome">
+			<result type="tiles">d_principal</result>
+		</action>
+
 	</package>
 
 </struts>
