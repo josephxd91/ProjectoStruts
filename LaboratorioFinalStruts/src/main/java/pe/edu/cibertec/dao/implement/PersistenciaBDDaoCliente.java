@@ -40,7 +40,7 @@ public class PersistenciaBDDaoCliente implements DaoCliente {
                 + "numeroMovil, "
                 + "publicidad, "
                 + "correo "
-                + "FROM cliente";
+                + "FROM cliente limit 4";
         Connection cn = conecta.connection();
         if (cn != null) {
             System.out.println("CONEXION NO NULL");

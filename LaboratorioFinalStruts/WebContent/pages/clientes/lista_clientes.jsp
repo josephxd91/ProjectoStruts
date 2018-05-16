@@ -5,9 +5,9 @@
 <div class="container-fluid">
 	<div class="card">
 		<div class="card-header bg-light">
-			<h2>
-				Listado de Clientes <span class="badge badge-secondary">New</span>
-			</h2>
+			<h3>
+				Listado de Clientes
+			</h3>
 		</div>
 
 		<div class="card-body">
@@ -40,8 +40,8 @@
 									<td><s:property value="publicidad" /></td>
 									<td><s:property value="correo" /></td>
 									<td><button type="button" class="btn btn-primary"
-											data-toggle="modal" data-target="#modal-4">Actualizar</button></td>
-									<td><button type="button" class="btn btn-danger">Eliminar</button></td>
+											data-toggle="modal" onclick="fnUpdateClient(<s:property value="codigo"/>)"  data-target="#modal-4">Actualizar</button></td>
+									<td><button type="button" onclick="fnDeleteClient(<s:property value="codigo"/>)" class="btn btn-danger" data-toggle="modal" data-target="#modal-8">Eliminar</button></td>
 								</tr>
 							</s:iterator>
 						</tbody>
@@ -177,3 +177,32 @@
 		</div>
 	</div>
 </div>
+
+
+
+
+
+<div class="modal fade" id="modal-8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger border-0">
+                <h5 class="modal-title text-white">Eliminacion de Clientes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+			<s:textfield type="hidden" id="txtCodCliente" value="0" />
+            <div class="modal-body p-5">
+                ¿Deseas proceder a la eliminacion  del registro?
+            </div>
+
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-link" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger" onclick="fnConfirmDelete()" >Continuar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

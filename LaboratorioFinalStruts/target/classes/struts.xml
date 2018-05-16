@@ -47,6 +47,11 @@
 			<result type="tiles">d_principal</result>
 		</action>
 
+	
+		<action name="deleteConfirmClient" class="pe.edu.cibertec.action.ClienteAction" method="eliminarCliente">
+			<result name="success">/pages/clientes/lista_clientes.jsp</result>
+	</action>
+
 	</package>
 
 </struts>

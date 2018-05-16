@@ -16,6 +16,19 @@ public class ClienteAction extends ActionSupport {
 	private ClienteAction cliente;
 	private List<Cliente> listaClientes;
 	private final DaoCliente daoCliente = new PersistenciaBDDaoCliente();
+	private int codigo;
+	
+	
+	
+	
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 
 	public ClienteAction getCliente() {
 		return cliente;
@@ -24,6 +37,14 @@ public class ClienteAction extends ActionSupport {
 	public void setCliente(ClienteAction cliente) {
 		this.cliente = cliente;
 	}
+	
+	
+	public String eliminarCliente() {
+		daoCliente.eliminarCliente(codigo);
+		listaClientes = daoCliente.listarCliente();
+		return SUCCESS;
+	}
+	
 
 	public String listadoClientes() {
 		listaClientes = daoCliente.listarCliente();
