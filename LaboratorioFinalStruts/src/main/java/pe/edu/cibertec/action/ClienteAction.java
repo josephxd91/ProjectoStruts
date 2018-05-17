@@ -13,14 +13,10 @@ public class ClienteAction extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ClienteAction cliente;
 	private List<Cliente> listaClientes;
 	private final DaoCliente daoCliente = new PersistenciaBDDaoCliente();
 	private int codigo;
-	
-	
-	
-	
+	private Cliente cliente;
 
 	public int getCodigo() {
 		return codigo;
@@ -30,21 +26,26 @@ public class ClienteAction extends ActionSupport {
 		this.codigo = codigo;
 	}
 
-	public ClienteAction getCliente() {
+	public Cliente getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(ClienteAction cliente) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
-	
+
 	public String eliminarCliente() {
 		daoCliente.eliminarCliente(codigo);
 		listaClientes = daoCliente.listarCliente();
 		return SUCCESS;
 	}
-	
+
+	public String obtenerCliente() {
+//		JSONSer
+		cliente = daoCliente.obtenerCliente(codigo);
+		System.out.println("cliente => " + cliente.toString());
+		return SUCCESS;
+	}
 
 	public String listadoClientes() {
 		listaClientes = daoCliente.listarCliente();

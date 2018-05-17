@@ -1,5 +1,5 @@
 function fnDeleteClient(id) {
-	console.log(id);
+	//console.log(id);
 	if (id < 0) {
 		$('#modal-8').modal('hide');
 		$('.modal-backdrop').hide();
@@ -10,17 +10,14 @@ function fnDeleteClient(id) {
 
 function fnConfirmDelete() {
 
-	var id = $("#txtCodCliente").val();
-	
-	if (id < 0) {
+	if ( $("#txtCodCliente").val < 0) {
 		$('#modal-8').modal('hide');
 		$('.modal-backdrop').hide();
 		return;
 	}
 	
-	console.log("eliminando al cliente  2 ==> " + id);
 	$.post("deleteConfirmClient", {
-		codigo : id
+		codigo :  $("#txtCodCliente").val()
 	}, function(data) {
 		$("#body_content_change").html(data);
 	});
@@ -31,6 +28,35 @@ function fnConfirmDelete() {
 	// $("#modal-backdrop.fade.show").hide();
 
 }
+
+
+function fnUpdateClient(id){
+	console.log(id);
+	$.post("getReturnClient",{codigo:id},function(data){
+		
+//		var obj = JSON.stringify(data);
+		var obJSON = JSON.parse(JSON.stringify(data));
+		
+		console.log(obJSON.cliente.codigo );
+		$("#txtCodigo").val(obJSON.cliente.codigo);
+		$("#txtNombre").val(obJSON.cliente.nombre);
+		$("#txtApellido").val(obJSON.cliente.apellido);
+		//genero
+		$("#txtProfesion").val(obJSON.cliente.profesion);
+		$("#txtCelular").val(obJSON.cliente.numeroMovil);
+		$('#ts2').prop('checked', obJSON.cliente.publicidad );
+		$("#txtCorreo").val(obJSON.cliente.correo);
+		
+		
+	});
+	
+}
+
+
+
+
+
+
 
 function fnLoadPageClientes() {
 

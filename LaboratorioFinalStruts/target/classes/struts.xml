@@ -10,7 +10,7 @@
 
 
 
-	<package name="default" extends="struts-default">
+	<package name="default" namespace="/" extends="struts-default,json-default">
 		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult"></result-type>
@@ -41,18 +41,29 @@
 			method="listadoClientes">
 			<result type="tiles">d_listaCliente</result>
 		</action>
-		
+
 		<!-- Evento ir pagina inicial -->
-		<action name="indexPageHome" class="pe.edu.cibertec.action.UsuarioAction" method="goPageHome">
+		<action name="indexPageHome" class="pe.edu.cibertec.action.UsuarioAction"
+			method="goPageHome">
 			<result type="tiles">d_principal</result>
 		</action>
 
-	
-		<action name="deleteConfirmClient" class="pe.edu.cibertec.action.ClienteAction" method="eliminarCliente">
+
+		<action name="deleteConfirmClient" class="pe.edu.cibertec.action.ClienteAction"
+			method="eliminarCliente">
 			<result name="success">/pages/clientes/lista_clientes.jsp</result>
-	</action>
+		</action>
+
+
+		<action name="getReturnClient" class="pe.edu.cibertec.action.ClienteAction"
+			method="obtenerCliente">
+			<result name="success" type="json" />
+		</action>
+
 
 	</package>
+
+
 
 </struts>
    

@@ -89,6 +89,13 @@ public class Cliente  implements Serializable{
         this.correo = correo;
     }
 
+	@Override
+	public String toString() {
+		return "Cliente [codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", genero=" + genero
+				+ ", profesion=" + profesion + ", numeroMovil=" + numeroMovil + ", publicidad=" + publicidad
+				+ ", correo=" + correo + "]";
+	}
+
     
 
 }
