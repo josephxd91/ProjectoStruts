@@ -52,6 +52,22 @@ function fnUpdateClient(id){
 	
 }
 
+     
+
+
+function fnFormNewClient(){
+	$("#txtCodigo").val(0);
+	$('#modal-4').modal('show');
+	
+}
+
+
+
+
+
+
+
+
 
 
 

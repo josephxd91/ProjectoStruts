@@ -6,6 +6,9 @@
 	<div class="card">
 		<div class="card-header bg-light">
 			<h3>Listado de Clientes</h3>
+			<button type="button" onclick="fnFormNewClient()" class="btn btn-primary">
+				<i class="fa fa-align-center"></i> &nbsp; Nuevo
+			</button>
 		</div>
 
 		<div class="card-body">
@@ -88,26 +91,29 @@
 			<div class="modal-body p-5">
 
 
-				<s:form action="updateClient">
-					<s:hidden name="cliente.codigo" id="txtCodigo"/>
-				
+				<s:form action="updateClient" theme="simple">>
+					<s:hidden name="cliente.codigo" id="txtCodigo" />
+
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-2 col-form-label">Nombres</label>
 						<div class="col-sm-10">
-<!-- 							<input type="text" class="form-control" id="txtNombre" -->
-<!-- 								placeholder="Nombre completo"> -->
-								
-							<s:textfield type="text" name="cliente.nombre" class="form-control" id="txtNombre" placeholder="Nombre Completo"/>	
-								
+							<!-- 							<input type="text" class="form-control" id="txtNombre" -->
+							<!-- 								placeholder="Nombre completo"> -->
+
+							<s:textfield type="text" name="cliente.nombre"
+								class="form-control" id="txtNombre"
+								placeholder="Nombre Completo" />
+
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-2 col-form-label">Apellidos</label>
 						<div class="col-sm-10">
-<!-- 							<input type="text" class="form-control" id="txtApellido" -->
-<!-- 								placeholder="Apellido completo"> -->
-								
-						 <s:textfield type="text" class="form-control" id="txtApellido" placeholder="Apellido completo" name="cliente.apellido" />
+							<!-- 							<input type="text" class="form-control" id="txtApellido" -->
+							<!-- 								placeholder="Apellido completo"> -->
+
+							<s:textfield type="text" class="form-control" id="txtApellido"
+								placeholder="Apellido completo" name="cliente.apellido" />
 						</div>
 					</div>
 
@@ -146,8 +152,9 @@
 						<div class="col-sm-10">
 							<!---<input type="text" class="form-control" id="txtProfesion"
 								placeholder="Profesion">-->
-								
-								<s:textfield  type="text"  id="txtProfesion" class="form-control"  placeholder="Profesion" />  
+
+							<s:textfield type="text" id="txtProfesion" class="form-control"
+								placeholder="Profesion" />
 						</div>
 					</div>
 
@@ -158,19 +165,30 @@
 								class="form-control" id="txtCelular" name="cliente.numeroMovil" />
 						</div>
 					</div>
-	
-<%-- 	 <s:checkbox   name="publicidad" value="%{cliente.publicidad}" id="ts2"  />	 --%>
-						 
-					<div class="toggle-switch" data-ts-color="primary">
-						<label for="ts2" class="ts-label">Deseas recibir una
-							publicidad a su correo?</label>
-							
-<!-- 						<input id="ts2" type="checkbox" hidden="hidden"/> -->
-							<!--<s:checkbox id="ts2" hidden="hidden"/>-->
-							
-							<s:textfield  type="checkbox" id="ts2" hidden="hidden" />
-							<label for="ts2" class="ts-helper"></label>
+
+
+					<div class="form-group row">
+						<label for="inputEmail3" class="col-sm-2 col-form-label">Deseas
+							recibir una publicidad?</label>
+						<div class="col-sm-10">
+							<s:checkbox name="publicidad" value="%{cliente.publicidad}"
+								id="ts2" />
+						</div>
 					</div>
+
+					<%-- 	 <s:checkbox   name="publicidad" value="%{cliente.publicidad}" id="ts2"  />	 --%>
+
+					<!-- 					<div class="toggle-switch" data-ts-color="primary"> -->
+					<!-- 						<label for="ts2" class="ts-label">Deseas recibir una -->
+					<!-- 							publicidad a su correo?</label> -->
+
+					<!-- 						<input id="ts2" type="checkbox" hidden="hidden"/> -->
+					<%-- 							<s:checkbox id="ts2"  fieldValue="true"/> --%>
+					<%-- 							<s:checkbox   name="publicidad" value="%{cliente.publicidad}" id="ts2"  />	 --%>
+					<!-- 							<s:textfield  type="checkbox" id="ts2" hidden="hidden" /> -->
+
+					<!-- 							<label for="ts2" class="ts-helper"></label> -->
+					<!-- 					</div> -->
 
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-2 col-form-label">Correo</label>
@@ -179,7 +197,7 @@
 								class="form-control" id="txtCorreo" name="cliente.correo" />
 						</div>
 					</div>
-
+					<s:submit value="Enviar Datos" />
 
 				</s:form>
 
@@ -190,9 +208,12 @@
 
 			<div class="modal-footer border-0">
 				<button type="button" class="btn btn-link" data-dismiss="modal">Cerrar</button>
-				<button type="button" class="btn btn-primary">Aplicar
-					Cambios</button>
+				<button type="button" onclick="applyChangeClient()"
+					class="btn btn-primary">Aplicar Cambios</button>
 			</div>
+
+
+
 		</div>
 	</div>
 </div>

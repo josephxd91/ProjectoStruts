@@ -14,6 +14,22 @@
 <link rel="stylesheet" href="resources/css/fontawesome-all.min.css">
 <link rel="stylesheet" href="resources/css/styles.css">
 
+
+
+	<script src="resources/js/function.js"></script>
+	<script src="resources/js/jquery.min.js"></script>
+	<script src="resources/js/popper.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/chart.min.js"></script>
+	<script src="resources/js/carbon.js"></script>
+	<script src="resources/js/demo.js"></script>
+	
+	
+	
+	
+	
+	
+
 </head>
 <body class="sidebar-fixed header-fixed">
 	<div class="page-wrapper">
@@ -26,14 +42,7 @@
 		</div>
 
 	</div>
-	<script src="resources/js/function.js"></script>
-	<script src="resources/js/jquery.min.js"></script>
-	<script src="resources/js/popper.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/chart.min.js"></script>
-	<script src="resources/js/carbon.js"></script>
-	<script src="resources/js/demo.js"></script>
-	
+0
 
 </body>
 </html>
