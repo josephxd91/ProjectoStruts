@@ -41,26 +41,27 @@ public class ClienteAction extends ActionSupport {
 	}
 
 	public String obtenerCliente() {
-//		JSONSer
+		// JSONSer
 		cliente = daoCliente.obtenerCliente(codigo);
 		System.out.println("cliente => " + cliente.toString());
 		return SUCCESS;
 	}
-	 
-	
+
 	public String updateClient() {
+
 		System.out.println("cliente update ==> " + cliente.toString());
-		cliente.setPublicidad(false);
-		cliente.setGenero("Masculino");
-		cliente.setProfesion("doctor");
-		
-		daoCliente.modificarCliente(cliente);
+//		cliente.setPublicidad(false);
+//		cliente.setGenero("Masculino");
+//		cliente.setProfesion("doctor");
+
+		if (cliente.getCodigo() > 0) {
+			daoCliente.modificarCliente(cliente);
+			return SUCCESS;
+		} 
+	
+		daoCliente.insertarCliente(cliente);
 		return SUCCESS;
 	}
-	
-	
-	
-	
 
 	public String listadoClientes() {
 		listaClientes = daoCliente.listarCliente();

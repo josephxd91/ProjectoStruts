@@ -5,8 +5,9 @@
 <div class="container-fluid">
 	<div class="card">
 		<div class="card-header bg-light">
-			<h3>Listado de Clientes</h3>
-			<button type="button" onclick="fnFormNewClient()" class="btn btn-primary">
+			<h4>Listado de Clientes</h4>
+			<button type="button" onclick="fnFormNewClient()"
+				class="btn btn-primary">
 				<i class="fa fa-align-center"></i> &nbsp; Nuevo
 			</button>
 		</div>
@@ -24,7 +25,7 @@
 								<th>Genero</th>
 								<th>Profesion</th>
 								<th>Telefono/Celular</th>
-								<th>Acepto Publicidad</th>
+								<th>Publicidad?</th>
 								<th>Correo</th>
 								<th colspan="2">Acciones</th>
 							</tr>
@@ -38,16 +39,24 @@
 									<td><s:property value="genero" /></td>
 									<td><s:property value="profesion" /></td>
 									<td><s:property value="numeroMovil" /></td>
-									<td><s:property value="publicidad" /></td>
+
+									<td><s:checkbox name="checkMe" fieldValue="true"
+											value="%{publicidad}" /></td>
+
+									<%-- 									<td><s:property value="publicidad" /></td> --%>
 									<td><s:property value="correo" /></td>
 									<td><button type="button" class="btn btn-primary"
 											data-toggle="modal"
-											onclick="fnUpdateClient(<s:property value="codigo"/>)"
-											data-target="#modal-4">Actualizar</button></td>
+											onclick="fnGetOneClient(<s:property value="codigo"/>)"
+											data-target="#modal-4">
+											<i class="fa fa-wrench"></i>&nbsp;
+										</button></td>
 									<td><button type="button"
 											onclick="fnDeleteClient(<s:property value="codigo"/>)"
 											class="btn btn-danger" data-toggle="modal"
-											data-target="#modal-8">Eliminar</button></td>
+											data-target="#modal-8">
+											<i class="fa fa-trash"></i>&nbsp;
+										</button></td>
 								</tr>
 							</s:iterator>
 						</tbody>
@@ -88,10 +97,10 @@
 				</button>
 			</div>
 
-			<div class="modal-body p-5">
+			<div class="modal-body p-3">
 
 
-				<s:form action="updateClient" theme="simple">>
+				<s:form action="updateClient" theme="simple">
 					<s:hidden name="cliente.codigo" id="txtCodigo" />
 
 					<div class="form-group row">
@@ -117,44 +126,27 @@
 						</div>
 					</div>
 
-					<fieldset class="form-group">
-						<div class="row">
-							<legend class="col-form-label col-sm-2 pt-0">Genero</legend>
-							<div class="col-sm-10">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridRadios"
-										id="gridRadios1" value="option1" checked> <label
-										class="form-check-label" for="gridRadios1"> Masculino
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridRadios"
-										id="gridRadios2" value="option2"> <label
-										class="form-check-label" for="gridRadios2"> Femenino </label>
-								</div>
-							</div>
+
+					<div class="form-group row">
+						<label for="inputEmail3" class="col-sm-2 col-form-label">Genero</label>
+						<div class="col-sm-10">
+							<s:select label="Seleccione" headerKey="-1"
+								headerValue="Seleccione el genero"
+								list="#{'Masculino':'Masculino', 'Femenino':'Femenino'}"
+								value="cliente.genero" name="cliente.genero"  id="cboGenero"/>
 						</div>
-					</fieldset>
-					<!-- 					<div class="form-group row"> -->
-					<!-- 						<div class="col-sm-2">Checkbox</div> -->
-					<!-- 						<div class="col-sm-10"> -->
-					<!-- 							<div class="form-check"> -->
-					<!-- 								<input class="form-check-input" type="checkbox" id="gridCheck1"> -->
-					<!-- 								<label class="form-check-label" for="gridCheck1"> -->
-					<!-- 									Example checkbox </label> -->
-					<!-- 							</div> -->
-					<!-- 						</div> -->
-					<!-- 					</div> -->
+					</div>
+
+
+
 
 
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-2 col-form-label">Profesion</label>
 						<div class="col-sm-10">
-							<!---<input type="text" class="form-control" id="txtProfesion"
-								placeholder="Profesion">-->
 
 							<s:textfield type="text" id="txtProfesion" class="form-control"
-								placeholder="Profesion" />
+								placeholder="Profesion" name="cliente.profesion" />
 						</div>
 					</div>
 
@@ -166,28 +158,19 @@
 						</div>
 					</div>
 
-
 					<div class="form-group row">
-						<label for="inputEmail3" class="col-sm-2 col-form-label">Deseas
-							recibir una publicidad?</label>
+						<label for="inputEmail3" class="col-sm-2 col-form-label">Publicidad</label>
 						<div class="col-sm-10">
-							<s:checkbox name="publicidad" value="%{cliente.publicidad}"
-								id="ts2" />
+							<s:checkbox id="ts2" name="cliente.publicidad" value="cliente.publicidad"/>
 						</div>
 					</div>
 
-					<%-- 	 <s:checkbox   name="publicidad" value="%{cliente.publicidad}" id="ts2"  />	 --%>
+
 
 					<!-- 					<div class="toggle-switch" data-ts-color="primary"> -->
 					<!-- 						<label for="ts2" class="ts-label">Deseas recibir una -->
-					<!-- 							publicidad a su correo?</label> -->
-
-					<!-- 						<input id="ts2" type="checkbox" hidden="hidden"/> -->
-					<%-- 							<s:checkbox id="ts2"  fieldValue="true"/> --%>
-					<%-- 							<s:checkbox   name="publicidad" value="%{cliente.publicidad}" id="ts2"  />	 --%>
-					<!-- 							<s:textfield  type="checkbox" id="ts2" hidden="hidden" /> -->
-
-					<!-- 							<label for="ts2" class="ts-helper"></label> -->
+					<!-- 							publicidad a su correo?</label> <input id="ts2" type="checkbox" -->
+					<!-- 							hidden="hidden" /> <label for="ts2" class="ts-helper"></label> -->
 					<!-- 					</div> -->
 
 					<div class="form-group row">
@@ -197,8 +180,11 @@
 								class="form-control" id="txtCorreo" name="cliente.correo" />
 						</div>
 					</div>
-					<s:submit value="Enviar Datos" />
 
+					<div class="modal-footer border-0">
+						<button type="button" class="btn btn-link" data-dismiss="modal">Cerrar</button>
+						<s:submit value="Enviar Datos" class="btn btn-primary" />
+					</div>
 				</s:form>
 
 
@@ -206,11 +192,7 @@
 
 
 
-			<div class="modal-footer border-0">
-				<button type="button" class="btn btn-link" data-dismiss="modal">Cerrar</button>
-				<button type="button" onclick="applyChangeClient()"
-					class="btn btn-primary">Aplicar Cambios</button>
-			</div>
+
 
 
 

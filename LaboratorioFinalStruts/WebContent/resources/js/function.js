@@ -1,5 +1,5 @@
 function fnDeleteClient(id) {
-	//console.log(id);
+	// console.log(id);
 	if (id < 0) {
 		$('#modal-8').modal('hide');
 		$('.modal-backdrop').hide();
@@ -10,14 +10,14 @@ function fnDeleteClient(id) {
 
 function fnConfirmDelete() {
 
-	if ( $("#txtCodCliente").val < 0) {
+	if ($("#txtCodCliente").val < 0) {
 		$('#modal-8').modal('hide');
 		$('.modal-backdrop').hide();
 		return;
 	}
-	
+
 	$.post("deleteConfirmClient", {
-		codigo :  $("#txtCodCliente").val()
+		codigo : $("#txtCodCliente").val()
 	}, function(data) {
 		$("#body_content_change").html(data);
 	});
@@ -29,50 +29,44 @@ function fnConfirmDelete() {
 
 }
 
-
-function fnUpdateClient(id){
+function fnGetOneClient(id) {
 	console.log(id);
-	$.post("getReturnClient",{codigo:id},function(data){
-		
-//		var obj = JSON.stringify(data);
+	$.post("getReturnClient", {
+		codigo : id
+	}, function(data) {
 		var obJSON = JSON.parse(JSON.stringify(data));
-		
-		console.log(obJSON.cliente.codigo );
+		console.log(obJSON.cliente.codigo);
 		$("#txtCodigo").val(obJSON.cliente.codigo);
 		$("#txtNombre").val(obJSON.cliente.nombre);
 		$("#txtApellido").val(obJSON.cliente.apellido);
-		//genero
+		// genero
+		$("#cboGenero").val(obJSON.cliente.genero);
+		console.log(obJSON.cliente.genero);   
 		$("#txtProfesion").val(obJSON.cliente.profesion);
 		$("#txtCelular").val(obJSON.cliente.numeroMovil);
-		$('#ts2').prop('checked', obJSON.cliente.publicidad );
+		$('#ts2').prop('checked', obJSON.cliente.publicidad);
 		$("#txtCorreo").val(obJSON.cliente.correo);
-		
-		
+
 	});
-	
+
 }
 
-     
-
-
-function fnFormNewClient(){
+function clearFormClient() {
 	$("#txtCodigo").val(0);
-	$('#modal-4').modal('show');
-	
+	$("#txtNombre").val("");
+	$("#txtApellido").val("");
+	$("#txtProfesion").val("");
+	$("#txtCelular").val("");
+	$('#ts2').prop('checked', false);
+	$("#txtCorreo").val("");
 }
 
+function fnFormNewClient() {
+	$("#txtCodigo").val(0);
+	clearFormClient();
+	$('#modal-4').modal('show');
 
-
-
-
-
-
-
-
-
-
-
-
+}
 
 function fnLoadPageClientes() {
 
