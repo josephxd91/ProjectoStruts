@@ -15,6 +15,11 @@
 	</a>
 
 	<ul class="navbar-nav ml-auto">
+		
+		
+		
+		
+	
 		<li class="nav-item d-md-down-none"><a href="#"> <i
 				class="fa fa-bell"></i> <span class="badge badge-pill badge-danger">5</span>
 		</a></li>
@@ -28,7 +33,7 @@
 			href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
 			aria-expanded="false"> <img src="resources/img/avatar-1.png"
 				class="avatar avatar-sm" alt="logo"> <span
-				class="small ml-1 d-md-down-none">John Smith</span>
+				class="small ml-1 d-md-down-none">${user.username}</span>
 		</a>
 
 			<div class="dropdown-menu dropdown-menu-right">

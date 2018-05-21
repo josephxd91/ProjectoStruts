@@ -50,10 +50,6 @@ public class ClienteAction extends ActionSupport {
 	public String updateClient() {
 
 		System.out.println("cliente update ==> " + cliente.toString());
-//		cliente.setPublicidad(false);
-//		cliente.setGenero("Masculino");
-//		cliente.setProfesion("doctor");
-
 		if (cliente.getCodigo() > 0) {
 			daoCliente.modificarCliente(cliente);
 			return SUCCESS;

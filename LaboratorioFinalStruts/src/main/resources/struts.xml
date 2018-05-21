@@ -17,11 +17,11 @@
 		</result-types>
 		
 		<interceptors>
-			<interceptor name="clear-cache" class="pe.edu.cibertec.interceptor.ClearCacheInterceptor"/>
+			<interceptor name="clearCache" class="pe.edu.cibertec.interceptor.ClearCacheInterceptor"/>
 			
 			
-			<interceptor-stack name="dontCache">
-                <interceptor-ref name="clear-cache"/>
+			<interceptor-stack name="defaultSecurityStack">
+                <interceptor-ref name="clearCache"/>
                 <interceptor-ref name="defaultStack"/>
             </interceptor-stack>
             
@@ -36,41 +36,44 @@
 		<action name="inicio" class="pe.edu.cibertec.action.UsuarioAction"
 			method="inicio">
 <!-- 			 <interceptor-ref name="dontCache" /> -->
+
+<!-- 			 <interceptor-ref name="clearCache" /> -->
 			<result name="login">/pages/seguridad/login.jsp</result>
 		</action>
 
 		<action name="login" class="pe.edu.cibertec.action.UsuarioAction"
 			method="login">
-<!-- 			 <interceptor-ref name="dontCache" /> -->
-			<result type="tiles">d_principal</result>
+
+<!-- 			 <interceptor-ref name="clearCache" /> -->
+			<result name="success" type="tiles">d_principal</result>
 			<result name="login">/pages/seguridad/login.jsp</result>
 			<result name="input">/pages/seguridad/login.jsp</result>
 		</action>
 
 		<action name="logout" class="pe.edu.cibertec.action.UsuarioAction"
 			method="logout">
-<!-- 			 <interceptor-ref name="dontCache" /> -->
+<!--  <interceptor-ref name="clearCache" /> -->
 			<result name="login">/pages/seguridad/login.jsp</result>
 		</action>
 
 		<!-- listado de clientes -->
 		<action name="getListClientes" class="pe.edu.cibertec.action.ClienteAction"
 			method="listadoClientes">
-<!-- 			 <interceptor-ref name="dontCache" /> -->
+<!--  <interceptor-ref name="clearCache" /> -->
 			<result type="tiles">d_listaCliente</result>
 		</action>
 
 		<!-- Evento ir pagina inicial -->
 		<action name="indexPageHome" class="pe.edu.cibertec.action.UsuarioAction"
 			method="goPageHome">
-<!-- 			 <interceptor-ref name="dontCache" /> -->
+<!--  <interceptor-ref name="clearCache" /> -->
 			<result type="tiles">d_principal</result>
 		</action>
 
 
 		<action name="deleteConfirmClient" class="pe.edu.cibertec.action.ClienteAction"
 			method="eliminarCliente">
-<!-- 			 <interceptor-ref name="dontCache" /> -->
+<!--  <interceptor-ref name="clearCache" /> -->
 			<result name="success">/pages/clientes/lista_clientes.jsp</result>
 		</action>
 
@@ -81,7 +84,7 @@
 		</action>
 
 		<action name="updateClient" class="pe.edu.cibertec.action.ClienteAction" method="updateClient">
-<!-- 		 <interceptor-ref name="dontCache" /> -->
+<!--  <interceptor-ref name="clearCache" /> -->
 			 <result type="redirectAction">getListClientes</result>
 		</action>
 		

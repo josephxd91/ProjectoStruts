@@ -24,16 +24,12 @@ implements Interceptor{
 		
 		ActionContext context = (ActionContext)invocation.getInvocationContext();
 		HttpServletResponse response = (HttpServletResponse)context.get(StrutsStatics.HTTP_RESPONSE);
-		
-        
-        
         response.setHeader("Pragma", "no-cache");
         response.addHeader("Cache-Control", "must-revalidate");
         response.addHeader("Cache-Control", "no-cache");
         response.addHeader("Cache-Control", "no-store");
         response.setDateHeader("Expires", 0);
-        String result=invocation.invoke();
-        return result;
+        return invocation.invoke();
 	}
 
 	@Override

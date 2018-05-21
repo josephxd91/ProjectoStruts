@@ -30,7 +30,6 @@ function fnConfirmDelete() {
 }
 
 function fnGetOneClient(id) {
-	console.log(id);
 	$.post("getReturnClient", {
 		codigo : id
 	}, function(data) {
@@ -39,9 +38,7 @@ function fnGetOneClient(id) {
 		$("#txtCodigo").val(obJSON.cliente.codigo);
 		$("#txtNombre").val(obJSON.cliente.nombre);
 		$("#txtApellido").val(obJSON.cliente.apellido);
-		// genero
 		$("#cboGenero").val(obJSON.cliente.genero);
-		console.log(obJSON.cliente.genero);   
 		$("#txtProfesion").val(obJSON.cliente.profesion);
 		$("#txtCelular").val(obJSON.cliente.numeroMovil);
 		$('#ts2').prop('checked', obJSON.cliente.publicidad);
@@ -59,39 +56,68 @@ function clearFormClient() {
 	$("#txtCelular").val("");
 	$('#ts2').prop('checked', false);
 	$("#txtCorreo").val("");
+	$("#cboGenero").val("-1");
 }
 
 function fnFormNewClient() {
-	$("#txtCodigo").val(0);
 	clearFormClient();
 	$('#modal-4').modal('show');
 
 }
-
-function fnLoadPageClientes() {
-
-	// $.post("getListClientes",{},function(result){
-	// $("#body_content_change").html("hola");
-	// });
-
-	// $("#body_content_change").load("getListClientes",function(data){
-	// $("#body_content_change.content").html(data);
-	// });
-
-	// $.ajax({
-	// type:"GET",
-	// url:"getListClientes",
-	// success: function(data){
-	// $("#body_content_change").html("");
-	// $("#body_content_change").html(data);
-	// console.log("data===> " + data);
-	// },
-	// error:function(data){
-	// $("#body_content_change").html("<html>Algo salio mal</html>");
-	// }
-	//		
-	//		
-	// });
-	//	
-
+function fnDesconection(){
+	console.log("desconexion");
+	window.location="logout";
 }
+
+
+var contador = 0;
+// 300 5 minutos
+var time_seconds = 300 ;
+$(document).ready(
+		function() {
+			contador = 0;
+			var d = null;
+//			d.setSeconds(time_seconds);
+			var idleInterval = setInterval(timerIncrement, 1000); 
+			$("#lblTime").html("00:05:00");
+			function timerIncrement() {
+				contador++;
+				d = new Date(null);
+				d.setSeconds(parseInt(time_seconds) - parseInt(contador));
+				$("#lblTime").html(d.toISOString().substr(11, 8));
+				d = null;
+				if (contador >= time_seconds) {
+					doPreload();
+				}
+
+				if (contador > 3) {
+					$("#modal-12").modal('show');
+				}
+			}
+
+			// Eventos a controlar
+			$(this).mousemove(function(e) {
+				contador = 0;
+				$("#modal-12").modal('hide');
+			});
+
+			$(this).keypress(function(e) {
+				contador = 0;
+				$("#modal-12").modal('hide');
+			})
+
+			$(this).keydown(function() {
+				$("#modal-12").modal('hide');
+				contador = 0;
+			});
+
+			function doPreload() {
+				// alert("hola mundo");
+				$("#modal-12").modal('show');
+				console.log("hola");
+				clearInterval(idleInterval);
+				fnDesconection();
+
+			}
+
+		});

@@ -27,7 +27,7 @@
 				<ul class="nav-dropdown-items">
 					<li class="nav-item"><s:a href="%{listClientes}"
 							class="nav-link">
-							<i class="icon icon-target"></i> Clientes</s:a></li>
+							<i class="fa fa-user-circle"></i> Clientes</s:a></li>
 					<li class="nav-item"><a href="#" class="nav-link"> <i
 							class="icon icon-target"></i> Usuario
 					</a></li>

@@ -12,6 +12,7 @@
 			</button>
 		</div>
 
+	
 		<div class="card-body">
 			<div class="table-responsive">
 
@@ -130,10 +131,10 @@
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-2 col-form-label">Genero</label>
 						<div class="col-sm-10">
-							<s:select label="Seleccione" headerKey="-1"
+							<s:select label="Seleccione" headerKey="-1" class="form-control"
 								headerValue="Seleccione el genero"
 								list="#{'Masculino':'Masculino', 'Femenino':'Femenino'}"
-								value="cliente.genero" name="cliente.genero"  id="cboGenero"/>
+								value="cliente.genero" name="cliente.genero" id="cboGenero" />
 						</div>
 					</div>
 
@@ -161,7 +162,8 @@
 					<div class="form-group row">
 						<label for="inputEmail3" class="col-sm-2 col-form-label">Publicidad</label>
 						<div class="col-sm-10">
-							<s:checkbox id="ts2" name="cliente.publicidad" value="cliente.publicidad"/>
+							<s:checkbox id="ts2" name="cliente.publicidad"
+								value="cliente.publicidad" />
 						</div>
 					</div>
 
