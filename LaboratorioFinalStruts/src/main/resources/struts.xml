@@ -18,7 +18,8 @@
 
 		<interceptors>
 			<interceptor name="rangoHora"
-				class="pe.edu.cibertec.interceptor.RangoHorarioInterceptor" />
+				class="pe.edu.cibertec.inteceptor.RangoHorarioInterceptor" />
+
 			<interceptor-stack name="horarioStack">
 				<interceptor-ref name="rangoHora" />
 				<interceptor-ref name="defaultStack" />

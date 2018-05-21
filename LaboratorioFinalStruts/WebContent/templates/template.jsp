@@ -2,14 +2,19 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
-
-
 <%
 	response.addHeader("Pragma", "no-cache");
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 	response.addHeader("Cache-Control", "pre-check=0,post-check=0");
 	response.setDateHeader("Expires", 0);
 %>
+
+
+<s:if test="%{#session.isEmpty}">
+	<script>
+			window.location="login";
+	</script>
+</s:if>
 
 
 
@@ -19,20 +24,11 @@
 <meta name="viewport"
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta http-equiv="Cache-control" content="must-revalidate">
-<meta http-equiv="Cache-control" content="no-cache">
-<meta http-equiv="Cache-control" content="no-store">
-<meta http-equiv="Pragma" content="no-store">
-<meta http-equiv="expires" content="0" />
-<s:if test="%{#session.isEmpty}">
-	<script>
-			window.location="login";
-	</script>
-</s:if>
-
-
-
-
+<!-- <meta http-equiv="Cache-control" content="must-revalidate"> -->
+<!-- <meta http-equiv="Cache-control" content="no-cache"> -->
+<!-- <meta http-equiv="Cache-control" content="no-store"> -->
+<!-- <meta http-equiv="Pragma" content="no-store"> -->
+<!-- <meta http-equiv="expires" content="0" /> -->
 
 
 <title>Carbon - Admin Template</title>
@@ -58,8 +54,8 @@
 
 </head>
 <body class="sidebar-fixed header-fixed" id="body_content">
-	Welcome to Profile,
-	<s:property value="#session.user.username" />
+<!-- 	Welcome to Profile, -->
+<%-- 	<s:property value="#session.user.username" /> --%>
 
 
 

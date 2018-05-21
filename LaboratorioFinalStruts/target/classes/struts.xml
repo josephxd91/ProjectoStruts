@@ -16,7 +16,7 @@
 				class="org.apache.struts2.views.tiles.TilesResult"></result-type>
 		</result-types>
 
-		<interceptors>
+		<interceptors> 
 			<interceptor name="rangoHora"
 				class="pe.edu.cibertec.interceptor.RangoHorarioInterceptor" />
 			<interceptor-stack name="horarioStack">
@@ -34,7 +34,7 @@
 
 		<action name="login" class="pe.edu.cibertec.action.UsuarioAction"
 			method="login">
-			<interceptor-ref name="horarioStack"/>
+			<interceptor-ref name="rangoHora"/>
 			<result name="success" type="tiles">d_principal</result>
 			<result name="login">/pages/seguridad/login.jsp</result>
 			<result name="input">/pages/seguridad/login.jsp</result>
