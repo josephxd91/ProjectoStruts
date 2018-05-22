@@ -10,16 +10,17 @@ public class RangoHorarioInterceptor implements Interceptor {
 
 	@Override
 	public void destroy() {
-		
+		System.out.println("destroy");
 	}
 
 	@Override
 	public void init() {
-		
+		System.out.println("init");
 	}
 
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
+		System.out.println("intercept");
 		Calendar cl = Calendar.getInstance();
 		int hora = cl.get(Calendar.HOUR_OF_DAY);
 		if(hora>=18) {

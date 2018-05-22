@@ -20,7 +20,7 @@ implements Interceptor{
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
 		
-		System.out.println("hola me llamaste?");
+		System.out.println("intercept");
 		
 		ActionContext context = (ActionContext)invocation.getInvocationContext();
 		HttpServletResponse response = (HttpServletResponse)context.get(StrutsStatics.HTTP_RESPONSE);
@@ -34,13 +34,13 @@ implements Interceptor{
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
+		System.out.println("destroy");
 		
 	}
 
 	@Override
 	public void init() {
-		// TODO Auto-generated method stub
+		System.out.println("init");
 		
 	}
 
